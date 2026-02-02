@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Analisis Keamanan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="result-body">
+    <div class="card">
+        <div class="card-header" style="background-color: {{ warna }};">STATUS: {{ status }}</div>
+        <div class="card-content">
+            <h1 style="color: {{ warna }};">{{ status }}</h1>
+            <div class="gauge-circle" style="border-color: {{ warna }}; color: {{ warna }};">{{ skor }}%</div>
+            <p class="description">{{ pesan }}</p>
+
+            <table class="analysis-table">
+                <tr><td>URL</td><td style="word-break: break-all;">{{ url }}</td></tr>
+                <tr><td>SSL State</td><td>{{ "Valid (HTTPS)" if "https" in url else "No SSL (HTTP)" }}</td></tr>
+                <tr><td>Metode</td><td>Random Forest AI</td></tr>
+            </table>
+
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: left;">
+                <p style="font-size: 0.85rem; margin: 0;"><strong>💡 Tips:</strong> Periksa domain utama sebelum memasukkan data sensitif.</p>
+            </div>
+            <a href="/" class="btn-back">Cek URL Lainnya</a>
+        </div>
+    </div>
+</body>
+</html>
